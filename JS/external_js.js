@@ -8,7 +8,7 @@
     let favColor = prompt("What is your favorite color?" );
     console.log( confirm(favColor + " is my favorite color too!"));
 */
-
+// alert(prompt("What is your favorite color?") + " " + "is my favorite color too!");
 
 // 1st You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
 /*
@@ -45,27 +45,44 @@ confirm("You made $" + (amazonPay + googlePay + metaPay));
 // 3rd A student can be enrolled in a class only if the class is not full and the class
 // schedule does not conflict with her current schedule.
 /*
-let classNotFull = true;
-let classConflict = true;
+let classNotFull = confirm("Is the class full? Okay = No & Cancel = Yes");
+let classConflict = confirm("Do your classes schedules conflict? Okay = No & Cancel = Yes");
 let studentEnrolled = classNotFull && classConflict;
-
+console.log(studentEnrolled);
+console.log("Class is not full " + classNotFull);
+console.log("schedules do not conflict " + classConflict);
+alert("Student can enroll: " + studentEnrolled);
+*/
+/*
 let classAt8am = false;
 let classSize = 100;
 let currentClassSize = 98;
 let canRegister = (currentClassSize +1 <= classSize) && !classAt8am;
 */
+//Teacher solution
+/*
+let hasConflict = confirm("Do you have a class at 10am?");
+let seatsRemaining = 29;
 
+if (!hasConflict && seatsRemaining){
+    console.log();
+}
+else {
+    console.log();
+}
+*/
 // 4th A product offer can be applied only if a person buys more than 2 items, and the offer has not expired.
 // Premium members do not need to buy a specific amount of products.
+/*
 let hasPremium = true;
 let cartSize = 6;
 let offerValid = true;
 
 let canHaveDiscount = offerValid && (cartSize > 2 || hasPremium);
 
-prompt(canHaveDiscount + "Congratulations, here is your discount!");
+confirm(canHaveDiscount + "Congratulations, here is your discount!");
 
-
+*/
 // premiumMember = true;
 // offerValid = true;
 // moreThanTwo => 2 && offerValid == true;
