@@ -157,9 +157,10 @@ var random = Math.floor((Math.random() * 3) + 1);
 
 //NEEDS WORK STILL
 /*
-function isTwo(x) {
-    return x === 2;
+function isTwo(num) {
+    return num === 2;
 }
+console.log(random);
 console.log(isTwo(random));
 */
 /**
@@ -195,7 +196,7 @@ console.log(alert("The amount to Tip amount is: $" + calculateTip(.15, 33.42)));
 
 let bill = Number(prompt('What is the total price of your bill?'));
 console.log(bill);
-let percentage = Number(prompt("what percentage would you like to tip? (0.00 t0 1.00)"));
+let percentage = Number(prompt("What percentage would you like to tip? (0.00 t0 1.00)"));
 console.log(percentage);
 
 function calculateTip(bill, percentage){
