@@ -33,9 +33,9 @@ It will accept 4 arguments and the parameter names are:
 age - the age of the rider
 isInsured - a boolean telling the function if the rider has insurance
 hasCar - a boolean describing if the rider has a car
-canGetRideshare - boolean describing if the rider can get a ride share (Uber, etc)
+canGetRideshare - boolean describing if the rider can get a ride-share (Uber, etc.)
 If the rider is over 16, has insurance, and has a car then they can use their own vehicle
-If the rider is not over 16, has no insurance, OR has no car but they CAN get a rideshare, then they call up a rideshare service
+If the rider is not over 16, has no insurance, OR has no car, but they CAN get a ride-share, then they call up a ride-share service
 If the rider meets none of the above, they should call a friend for a ride!
 This getToDestination should not return any value, but rather console log based on the conditions met.
 getToDestination, part 2
@@ -43,7 +43,7 @@ Create a function called canGetRideshare() which will RETURN a boolean
 It will determine if there are drivers nearby and the person has enough money for the ride
 Now, when you call getToDestination(), instead of passing in a canGetRideShare parameter
 Call canGetRideshare() in the else if after !isLegalDriver &&...
-Be sure to log to the user if they can or cannot get a rideshare
+Be sure to log to the user if they can or cannot get a ride-share
  */
 /*
 getToDestination();
@@ -85,7 +85,7 @@ function getToDestination() {
     } else if(age >= legalAge && hasCar && !isInsured){
         console.log("You are of age and have a car, but it is not insured bub");
     } else if(age >= legalAge && !hasCar && isInsured){
-        console.log("You are old enough but you do not have a car!");
+        console.log("You are old enough, but you do not have a car!");
     } else if(age < legalAge && hasCar && isInsured) {
         console.log("You are not old enough to drive, but cool car!");
     } else if(age < legalAge && !hasCar && !isInsured && rideShare) {
@@ -159,7 +159,7 @@ function analyzeColor(color){
     } else if (color === "green"){
         console.log("Green is the grass that grows from their blood.");
     } else {
-        console.log("I dont know anything about " + color);
+        console.log("I do not know anything about " + color);
     }
 }
 analyzeColor("red");
@@ -169,8 +169,10 @@ analyzeColor("red");
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
+/*
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+ */
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -181,46 +183,51 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+/*
 function analyzeColor(color) {
     switch(color){
         case "red":
-            console.log("Red is the blood of their enemies that rains down");
+            return ("Red is the blood of their enemies that rains down");
             break;
         case "orange":
-            console.log("Orange is the desert sand that the taliban is buried in");
+            return ("Orange is the desert sand that the taliban is buried in");
             break;
         case "yellow":
-            console.log("Yellow is the morning sun that smiles down on God's soldiers");
+            return ("Yellow is the morning sun that smiles down on God's soldiers");
             break;
         case "green":
-            console.log("Green is the grass that grows from their blood");
+            return ("Green is the grass that grows from their blood");
             break;
         case "blue":
-            console.log("Blue is the color of the sky the represents the infantry cord");
+            return ("Blue is the color of the sky the represents the infantry cord");
             break;
         case "indigo":
-            console.log("1");
+            return ("1");
             break;
         case "violet":
-            console.log("2");
+            return ("2");
             break;
         default:
-            console.log("Infantry leads the way in all colors, even " + color);
+            return ("Infantry leads the way in all colors, even " + color);
             break;
     }
 }
 analyzeColor(randomColor);
+
+ */
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+/*
 let enterColor = prompt("What is your favorite color?");
 alert("Your favorite color is " + enterColor);
 let userColor = analyzeColor(enterColor);
 alert(userColor);
-//How do i alert a function?
+//How do I alert a function? by return/ not console.log
+*/
 /* ########################################################################## */
 
 /**
@@ -242,7 +249,30 @@ alert(userColor);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+/*
+function calculateTotal(luckyNum, totalAmount) {
+    if (luckyNum === 0){
+        let walmartDiscount = totalAmount;
+        return totalAmount - walmartDiscount;
+    } else if (luckyNum === 1){
+        let walmartDiscount = (totalAmount * .1);
+        return totalAmount - walmartDiscount;
+    } else if (luckyNum === 2){
+        let walmartDiscount = (totalAmount * .25);
+        return totalAmount - walmartDiscount;
+    } else if (luckyNum === 3){
+        let walmartDiscount = (totalAmount * .35);
+        return totalAmount - walmartDiscount;
+    } else if (luckyNum === 4){
+        let walmartDiscount = (totalAmount * .50);
+        return totalAmount - walmartDiscount;
+    } else if (luckyNum === 5) {
+        let walmartDiscount = (totalAmount * 1);
+        return totalAmount - walmartDiscount;
+    }
+}
+calculateTotal(1,100);
+*/
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -252,8 +282,16 @@ alert(userColor);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+/*
+var luckyNum = Math.floor(Math.random() * 6);
 
+let userTotalBill = prompt("How much is your cart before checkout?");
+let priceWithDiscount = (userTotalBill - (calculateTotal(luckyNum, userTotalBill)));
+let newPrice = userTotalBill - priceWithDiscount;
+alert("Your lucky number is " + luckyNum);
+alert("Your price before discount was " + userTotalBill);
+alert("Your price with the discount is " + newPrice);
+*/
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -273,3 +311,73 @@ alert(userColor);
  * HINT: The way we prompt for a value could be improved
  */
 
+
+
+let userChoice = confirm("Would you like to enter a number?");
+
+if (userChoice) {
+    let userEnterNumber = Number(prompt("Enter number here: "));
+
+    if (isNaN(userEnterNumber)) {
+        alert("That is not a number")
+    } else {
+
+        if (userEnterNumber % 2 === 0) {
+            alert("Your number is even");
+        } else if (userEnterNumber % 1 === 0) {
+            alert("Your number is odd");
+        } else {
+            alert("You did not enter a number!");
+        }
+
+        alert("Your number + 100 is: " + (userEnterNumber + 100));
+
+        if (userEnterNumber > 0) {
+            alert("Your number is positive");
+        } else {
+            alert("Your number is negative");
+        }
+    }
+} else {
+    alert("OKAY BYE!");
+}
+
+//if(wantANumber){
+//    let theNewNum = userEnterNumber;
+//} How would I add a falsey if they do not want to enter a number?
+/*
+function theEnteredNum(userEnterNumber) {
+        if (userEnterNumber % 2 === 0){
+            let isEven = alert("Your number is even");
+            return isEven;
+        } else if (userEnterNumber % 1 === 0) {
+            let isOdd = alert("Your number is odd");
+            return isOdd;
+        } else {
+            alert("You did not enter a number!");
+        }
+}
+theEnteredNum(userEnterNumber);
+*/
+
+
+function executeChoice() {
+    let choice = confirm("Enter num?");
+    if (choice) {
+        customerEntersNum(prompt("Enter num!"));
+    } else {
+        alert("OK, bye");
+    }
+}
+
+function customerEntersNum(num) {
+    if (isNaN(num)) {
+        alert("Enter number"){
+    } else {
+
+
+
+        }
+    }
+}
+ */
