@@ -1,15 +1,6 @@
 "use strict";
 
 /*
-function showMultiplicationTable(num) {
-    for (let i = num; i < 100; i*i) {
-        console.log();
-    }
-}
-
-showMultiplicationTable(1);
-*/
-/*
 let num = 8;
 while (num < 50){
     num++;
@@ -69,5 +60,16 @@ while(!isCorrect) {
     }
 }
 alert("You entered the correct password. Welcome");
+*/
+
+/* //Exercise 1 complete
+function showMultiplicationTable(num) {
+    for (let i = 1; i <= 10; i++) {
+        let multiply = (num * i) * 1;
+        console.log(num + " x " + i + " = " + multiply);
+    }
+}
+
+showMultiplicationTable(9);
 */
 
