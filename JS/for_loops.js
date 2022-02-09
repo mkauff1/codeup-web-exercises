@@ -73,3 +73,10 @@ function showMultiplicationTable(num) {
 showMultiplicationTable(9);
 */
 
+for (let i = 1; i <= 10; i++) {
+    let num = Math.floor(Math.random() * 20) + 150;
+    if (num % 2 === 0){
+        console.log(num + " is even");
+    } else
+        console.log(num + " is odd");
+}
