@@ -166,19 +166,16 @@ for (let i = 0; i < 40; i++){
 */
 
 // Exercise 3
+
 /*
-let num = 9;
 let multiPrint = ""
-for (let i = 1; i <= num; i++) {
-    console.log(i);
-
-//    let saveMe = multiPrint += num.toString();
-//    console.log(saveMe ++);
-
-
+for (let i = 1; i <= 9; i++) {
+    let saveMe = multiPrint += i.toString();
+    console.log(saveMe ++);
 }
-console.log(multiPrint);
-
+//console.log(multiPrint);
+*/
+/*
 multiPrint
 for (let j = 1; j < 0; j--) {
     multiPrint += i + ''
@@ -194,14 +191,19 @@ numberTree(9);
 function printLine(num) {
     let multiPrint = ""
     for (let i = 1; i < num; i++);
-         console.log(multiPrint += num);
+        let saveMe = multiPrint += num.toString();
+        console.log(saveMe ++);
 }
-printLine(2);
-//let multiPrint = ""
-//for (let i = 1; i <= num; i++) {
-//    console.log(i);
-//
-//    let saveMe = multiPrint += num.toString();
-//    console.log(saveMe ++);
+printLine(9);
+*/
+/* //Exercise 3 solution
+ for (let i = 1; i <= 9; i++){
+     let multiLine = '';
+     for(let j = 1; j <= i; j++){
+         multiLine += i;
+     }
+     console.log(multiLine);
+ }
+*/
 
- */
+
