@@ -90,8 +90,21 @@ for (let i = 1; i <= 10; i++) {
         console.log(num + " is odd");
 }
 */
+/* //Class solution
+function printRandomNum() {
+    for (let i =1; i <= 10; i++) {
+        let randomNum = Math.floor(Math.random() * 180) + 20;
+        if (randomNum % 2 === 0){
+            console.log(randomNum + " is even!");
+        } else {
+            console.log(randomNum + " is odd...");
+        }
+    }
+}
+printRandomNum();
+*/
 
-/* // Inclass example
+/* // In-class example
 let letters = "";
 console.log(letters.length);
 for (let i = 0; i <= 36; i++) {
@@ -106,6 +119,41 @@ for (let i = 0; i <= 36; i++) {
 console.log(letters);
 */
 
+// TODO: Use a for loop to print the even numbers between 0 and 30, inclusive.
+//  HINT: remember the remainder operator (modulo)
+/*
+
+for (let i = 0; i <= 30; i++){
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+// IN class solution
+// for (let i = 0; i <= 30; i += 2){
+//    console.log(i);
+// }
+*/
+
+// TODO: loop through numbers 1 - 40. Print "marco" if it's divisible by 3. Print "polo" if it's divisible by 5.
+//  -> If it's neither print "I'm not playing"
+//  -> Print "marco polo" if it's divisible by 3 and 5.
+/*
+let num = 1; //Dont need external variable, everything can be i (num replaced by i). Unless you want user input for a function
+for (let i = 0; i < 40; i++){
+    if (num % 3 === 0 && num % 5 === 0) {
+        console.log(num + " marco polo");
+    } else if (num % 3 === 0) {
+        console.log(num + " marco");
+    } else if (num % 5 === 0) {
+        console.log(num + " polo");
+    } else {
+        console.log(num + " I'm not playing");
+    }
+    num++;
+}
+*/
+/*
 1
 22
 333
@@ -115,3 +163,45 @@ console.log(letters);
 7777777
 88888888
 999999999
+*/
+
+// Exercise 3
+/*
+let num = 9;
+let multiPrint = ""
+for (let i = 1; i <= num; i++) {
+    console.log(i);
+
+//    let saveMe = multiPrint += num.toString();
+//    console.log(saveMe ++);
+
+
+}
+console.log(multiPrint);
+
+multiPrint
+for (let j = 1; j < 0; j--) {
+    multiPrint += i + ''
+
+ */
+/*
+function numberTree(num){
+    let tree = ""
+}
+numberTree(9);
+*/
+/*
+function printLine(num) {
+    let multiPrint = ""
+    for (let i = 1; i < num; i++);
+         console.log(multiPrint += num);
+}
+printLine(2);
+//let multiPrint = ""
+//for (let i = 1; i <= num; i++) {
+//    console.log(i);
+//
+//    let saveMe = multiPrint += num.toString();
+//    console.log(saveMe ++);
+
+ */
