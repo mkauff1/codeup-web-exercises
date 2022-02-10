@@ -1,5 +1,6 @@
 "use strict";
 
+
 /*
 let num = 8;
 while (num < 50){
@@ -62,6 +63,13 @@ while(!isCorrect) {
 alert("You entered the correct password. Welcome");
 */
 
+
+// for-loop
+//you know what will stop the loop AND how many iteration the loop executes
+
+// for (Step1 /*control variable*/; Step2 "Step5" /*test condition*/; Step4 /*iterator*/) {
+//      Step3 = code that is run for each iteration of the loop;
+
 /* //Exercise 1 complete
 function showMultiplicationTable(num) {
     for (let i = 1; i <= 10; i++) {
@@ -73,6 +81,7 @@ function showMultiplicationTable(num) {
 showMultiplicationTable(9);
 */
 
+/* // Exercise 2 complete
 for (let i = 1; i <= 10; i++) {
     let num = Math.floor(Math.random() * 20) + 150;
     if (num % 2 === 0){
@@ -80,3 +89,29 @@ for (let i = 1; i <= 10; i++) {
     } else
         console.log(num + " is odd");
 }
+*/
+
+/* // Inclass example
+let letters = "";
+console.log(letters.length);
+for (let i = 0; i <= 36; i++) {
+    if(letters.toUpperCase() === letters){
+        letters = letters.toLowerCase();
+    } else {
+        letters = letters.toUpperCase()
+    }
+    console.log(letters);
+}
+
+console.log(letters);
+*/
+
+1
+22
+333
+4444
+55555
+666666
+7777777
+88888888
+999999999
