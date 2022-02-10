@@ -206,4 +206,21 @@ printLine(9);
  }
 */
 
+// Another students - exercise 3 solution
+// var b = '';
+// for(var i = 1; i < 10; i++){
+//     for(var a = 1; a <= i; a++){
+//         b+=i;
+//     }
+//     b += "\n";
+// }
+// console.log(b);
 
+// Simplified to the basic form - 1 for loop - Exercise 3
+// for (var i = 1; i < 10; i++){
+//     console.log(i.toString().repeat(i))
+// }
+
+for (let num = 100; num > 0; num - 5) {
+    console.log(num -= 5);
+}
