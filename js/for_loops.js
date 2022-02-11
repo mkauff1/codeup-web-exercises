@@ -181,12 +181,7 @@ for (let j = 1; j < 0; j--) {
     multiPrint += i + ''
 
  */
-/*
-function numberTree(num){
-    let tree = ""
-}
-numberTree(9);
-*/
+
 /*
 function printLine(num) {
     let multiPrint = ""
@@ -206,7 +201,7 @@ printLine(9);
  }
 */
 
-// Another students - exercise 3 solution
+// Another solution online - exercise 3 solution
 // var b = '';
 // for(var i = 1; i < 10; i++){
 //     for(var a = 1; a <= i; a++){
@@ -221,6 +216,6 @@ printLine(9);
 //     console.log(i.toString().repeat(i))
 // }
 
-for (let num = 100; num > 0; num - 5) {
-    console.log(num -= 5);
+for (let num = 100; num > 0; num -= 5) {
+    console.log(num);
 }
