@@ -165,6 +165,16 @@
      *      ---
      *      ...
      */
+    books.forEach(function (listEachBook, index){
+        console.log("Book # " + index);
+        console.log("Title: " + listEachBook.title);
+        console.log("Author: " + listEachBook.author.firstName + " " + listEachBook.author.lastName);
+    });
+
+
+    //for(let i = 0; i < books.length; i++) {
+    //    console.log(books[i].title);
+    //}
 
     /**
      * Bonus:
