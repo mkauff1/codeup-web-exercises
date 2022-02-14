@@ -51,4 +51,18 @@ dogNames.reverse().forEach(function(dogName,index){
 
 // show backwards iteration in forEach
 
+
 // sort
+
+// Split and Join
+
+let userInfo = "ry.sutton, 08/11/1994, rysutton, ford, mustang";
+//let userInfoArr = userInfo.split(',');
+let userInfoArr = userInfo.split('');
+console.log(userInfoArr);
+
+let userInfoAgain = userInfoArr.join('');
+console.log(userInfoAgain);
+
+let dt = new Date().toISOString();
+console.log(dt.split('T')[0]);
