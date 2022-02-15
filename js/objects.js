@@ -28,6 +28,7 @@
      */
     person.sayHello = function () {
         console.log("Hello from " + person.firstName + " " + person.lastName + "!");
+        // console.log("Hello from " + this.firstName + " " + this.lastName + "!");
     }
     person.sayHello();
     /*
@@ -166,9 +167,10 @@
      *      ...
      */
     books.forEach(function (listEachBook, index){
-        console.log("Book # " + index);
+        console.log("Book # " + (index + 1));
         console.log("Title: " + listEachBook.title);
         console.log("Author: " + listEachBook.author.firstName + " " + listEachBook.author.lastName);
+        console.log("---");
     });
 
 
@@ -198,6 +200,31 @@
     }
     let book1 = createBook("Bible", "Jesus");
     showBookInfo(book1);
+
+    /* // Instructor solution
+    function createBook(title, authorName) {
+        let authorNameSplit = authorName.split(' ');
+        return {
+            title: title,
+            author: {
+                firstName: authorNameSplit[0],
+                lastName: authorNameSplit[1]
+            }
+        }
+    }
+    addBook(createBook('clean code', 'Bob Martin'));
+
+    function addBook(book) {
+        books.push(book);
+    }
+    console.log(books);
+
+    function showBookInfo(book) {
+        console.log("Title: " + listEachBook.title);
+        console.log("Author: " + listEachBook.author.firstName + " " + listEachBook.author.lastName);
+        console.log("---");
+    }
+     */
 
     /*
     function createBook (title, fn, ln) {
