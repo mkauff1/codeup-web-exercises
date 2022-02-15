@@ -186,5 +186,32 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    function createBook (title, author1) {
+        return {
+            bookTitle: title,
+            author: author1
+        };
+    }
+
+    function showBookInfo(book) {
+        console.log(book.bookTitle + " " + book.author);
+    }
+    let book1 = createBook("Bible", "Jesus");
+    showBookInfo(book1);
+
+    /*
+    function createBook (title, fn, ln) {
+        return {
+            bookTitle = title,
+            firstName = fn,
+            lastName = ln,
+            bookLog = function () {
+                console.log("Book: " + this.bookTitle + " " + this.firstName + " " + this.lastName);
+            }
+        };
+    }
+    let book1 = createBook("Bible", "Jesus", "Christ");
+    book1.bookLog();
+    */
 
 })();
