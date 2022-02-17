@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Forms</title>
+    </head>
+    <body>
+    <!-- HTTP Methods
+    GET -> Use the data in the form to get me something back
+    POST -> I need to make NEW data!
+    PUT -> Update some existing data
+    DELETE -> Delete existing data
+    -->
+        <form method="POST" action="https://request-inspector.glitch.me/">
+            <div>
+                <label for="username-input">Username</label>
+                <input id="username-input" type="username" name="username" placeholder="Please enter username">
+            </div>
+            <div>
+                <input type="text">
+                <input type="email" name="email" placeholder="Please enter your email">
+            </div>
+            <div>
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" name="password" placeholder="Please enter password">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
