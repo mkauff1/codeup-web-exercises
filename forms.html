@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Register With Us</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <form method="POST" action="https://request-inspector.glitch.me/"></form>
+        <h1> Veridian Dynamics Registration</h1>
+        <hr>
+        <button type="button" onclick="alert('Sign Up or Else!')">Click Me!</button>
+        <div>
+            <label for="email-input">Email</label>
+            <input id="email-input" type="email" name="email" placeholder="Please enter your email">
+        </div>
+        <div>
+            <label for="password-input">Password</label>
+            <input id="password-input" type="password" name="password" placeholder="Please enter password">
+        </div>
+        <div>
+            <textarea name="bio-input" rows="10" cols="30" placeholder="Enter a short description about yourself"></textarea>
+        </div>
+        <div>
+            <h2>How did you hear about us?</h2>
+            <label for="billboard">
+                Billboard <input id="billboard" type="radio" class="radio" name="advertisement" value="1">
+            </label>
+            <label for="radio">
+                Radio <input id="radio" type="radio" class="radio" name="advertisement" value="1">
+            </label>
+            <label for="internet">
+                Internet <input id="internet" type="radio" class="radio" name="advertisement" value="1">
+            </label>
+            <label for="other">
+                Other <input id="other" type="radio" class="radio" name="advertisement" value="1">
+            </label>
+        </div>
+        <div>
+            <h2>What web browser are you using?</h2>
+            <label for="browser">Choose a Browser</label>
+            <select id="browser" name="browser">
+                <option value="firefox">Firefox</option>
+                <option value="chrome">Chrome</option>
+                <option value="safari">Safari</option>
+                <option value="edge">Edge</option>
+                <option value="opera">Opera</option>
+                <option vlaue="other">Other</option>
+            </select>
+        </div>
+        <button type="submit">Register</button>
+    </body>
+</html>
