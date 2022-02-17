@@ -89,6 +89,7 @@ let person2 = new Person(["Ty", "Sutton"],"Cat", "09.01.10");
 
     )
 */
+/*
 // Defines a contact info object
 function ContactInfo(phoneNumber, streetAddress, city, state, postalCode, emailAddress){
     this.phoneNumber = phoneNumber;
@@ -119,3 +120,41 @@ let person2 = new Person(
         'nope@no-no-no.no'));
 
 console.log(person2.contactInfo.emailAddress);
+*/
+
+// JS Object Warmup, pt 4:
+// We are going to create a method which allows a user to input their desired amount of names.
+// Use prompt, alert, confirm inside of a while loop
+// assign each name to an array
+// once the user decides they are done giving names, end the loop and return the string array
+// then assigning that returned array by invoking your new function on the Person.names property value!
+//     Things to consider:
+//     Should this be a standalone function or should it be a method on the Person object?
+
+
+function Person(){
+ //   this.getNames = () +> {
+        let namesArr = [];
+        let hasMoreNames = true;
+        while(hasMoreNames) {
+            // get those names!
+            namesArr.push(prompt("Please enter your desired name"));
+            //prompt for names
+
+            // ask if they want to add more names, keep looping otherwise break the loop
+            hasMoreNames = confirm("Would you like to enter another name?");
+        }
+        return namesArr;
+//    };
+//    this.names = this.getNames();
+}
+
+console.log(Person());
+
+
+
+// do {
+//     let names = prompt("What name would you like to add?");
+//     confirm("Thank you for adding " + names);
+//     confirm("Would you like to add a new name?");
+// } while (!false)
