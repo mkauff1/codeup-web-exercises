@@ -130,8 +130,7 @@ console.log(person2.contactInfo.emailAddress);
 // then assigning that returned array by invoking your new function on the Person.names property value!
 //     Things to consider:
 //     Should this be a standalone function or should it be a method on the Person object?
-
-
+/*
 function Person(){
  //   this.getNames = () +> {
         let namesArr = [];
@@ -158,3 +157,22 @@ console.log(Person());
 //     confirm("Thank you for adding " + names);
 //     confirm("Would you like to add a new name?");
 // } while (!false)
+
+ */
+
+function takeInput(value) {
+    if(typeof value == "number"){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(takeInput("number"));
+console.log(takeInput(undefined));
+console.log(takeInput(true));
+console.log(takeInput([1, 2]));
+//console.log(takeInput({number}));
+//console.log(takeInput(&));
+console.log(takeInput("1"));
+console.log(takeInput(Infinity));
