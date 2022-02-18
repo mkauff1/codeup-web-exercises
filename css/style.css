@@ -1,4 +1,45 @@
 .fancy-header {
+    text-align: center;
     color: mediumpurple;
     text-decoration: underline;
+}
+#contain {
+    text-align: center;
+}
+
+body {
+    background-image: url("../pics/pexels-daniel-absi-952670.jpg"); /* The image used */
+    background-color: aquamarine; /* Used if the image is unavailable */
+    /*height: 500px;  /*You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;  /*Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    font-family: Papyrus;
+}
+
+li {
+    list-style: square;
+}
+
+table {
+    font-family: American Typewriter;
+    margin: 0 auto;
+    background-color: coral;
+}
+
+table:hover{
+    background-color: mediumpurple;
+}
+
+td {
+    padding:10px;
+}
+
+a:any-link {
+    color: lightcoral;
+    text-decoration: none;
+}
+
+#footer-h3{
+
 }
