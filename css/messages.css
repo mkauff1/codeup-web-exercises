@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message{
+    opacity: 90%;
+    padding: 5px;
+    margin: 5px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#blue {
+    background-color: cornflowerblue;
+    color: blue;
+}
+#green {
+    background-color: #0fb784;
+    color: green;
+}
+#yellow {
+    background-color: yellow;
+    color: yellowgreen;
+}
+#red {
+    background-color: crimson;
+    color: darkred;
+}
