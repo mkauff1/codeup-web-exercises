@@ -1,6 +1,7 @@
 nav {
     background-color: #000f0f;
     color: #fff;
+    display: flex;
 }
 
 nav a:any-link {
@@ -9,19 +10,23 @@ nav a:any-link {
 }
 
 nav img{
-    position: relative;
+    /*position: relative;*/
 }
 
 nav li{
     font-family: Courier;
     list-style-type: none;
-    margin: 0;
+    flex-direction: row;
+
+    /*margin: 0;
     padding: 0;
     overflow: hidden;
     display: block;
     color: white;
     text-align: center;
     padding: 16px;
-    text-decoration: none;
-    float: left;
+    text-decoration: none;*/
+
+
+
 }
