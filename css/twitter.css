@@ -17,7 +17,7 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 header {
-    background-image: url("https://picsum.photos/1200/300");
+    background-image: url("https://loremflickr.com/1200/300");
     background-size: cover;
     min-height: 300px;
     padding-top: 275px;
@@ -29,24 +29,29 @@ a {
     background: var(--light-bg);
     position: fixed;
     width: 100%;
+    z-index:1000;
 }
 .nav {
     list-style-type: none;
     padding: 1.5em;
     margin: 0;
-    display: flex;
+}
+.nav-item {
+    display: inline-block;
+    padding: 1.5em;
 }
 .nav-link {
     color: var(--main-link-color);
     font-weight: bold;
     text-decoration: none;
-    padding: 1.5em;
 }
 .nav-link:hover {
     color: var(--link-color);
 }
 .profile {
     background: var(--light-bg);
+    height: 80px;
+
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -69,4 +74,62 @@ a {
 }
 .text-muted {
     color: var(--main-link-color);
+}
+.profile-image {
+    position: absolute;
+    line-height: 80px;
+    top: 40%;
+}
+.profile-form {
+    line-height: 80px;
+}
+.profile-details {
+    width: calc(25% - 1em);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    float: left;
+}
+.timeline {
+    width:calc(50% - 1em);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    float: left;
+}
+.who-to-follow {
+    width: calc(25% - 1em);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    float: left;
+}
+.container {
+    margin: 2em;
+}
+.media {
+    width: 100%;
+    background-color:var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
+    padding:.5em;
+    overflow: auto;
+}
+.media-image {
+    float: left;
+    max-width: 50px;
+    margin-top: 1.33em;
+}
+.media-body {
+    width: calc(100%- 50px);
+    float: left;
+}
+.profile-items {
+    padding: 0;
+    list-style-type: none;
+}
+.profile-entry {
+    margin: 0.5em;
 }
