@@ -1,0 +1,44 @@
+
+body {
+    background-color: #3B94D9;
+}
+h2 {
+    text-align: center;
+}
+.hide-on-small {
+    display: none;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+}
+#navbar {
+    margin-bottom: 1em;
+}
+#login {
+    display: flex;
+    justify-content: center;
+}
+#login-form label {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#login-form input {
+    width: 95%;
+    line-height: 2em;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    body {
+        background-color: mediumpurple;
+    }
+}
+
