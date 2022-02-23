@@ -3,36 +3,38 @@
 }
 body {
     margin: 0;
+
 }
 nav {
-    background: #333333;
+    background: #808080;
     display: flex;
+    justify-content: space-between;
 }
 ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex; /* made unordered list a flex container */
-}
-ol {
-    list-style: none;
+    /*margin: auto;*/
+    display: flex;
+
 }
 nav a {
     text-decoration: none;
-    color: white;
-    font-family: Verdana;
+    color: #000;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
     padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
 nav a:hover {
-    background: black;
+    background: #333333;
+    color: #add8e6;
 }
-/*
-nav ul li:nth-child(4) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    *//*
-    margin-left: auto;
+.logo-img {
+    padding:1em;
+    display: flex;
+    align-content: space-around;
 }
-*/
+.nav-bar-left {
+    font-family: Montserrat, sans-serif;
+}
+.nav-bar-right {
+    font-family: Work Sans, sans-serif;
+}

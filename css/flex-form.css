@@ -61,5 +61,5 @@ body {
         Read more about Flex Basis:
         https://java.codeup.com/appendix/further-reading/html-css/flexbox-additional-concepts/#flex-basis */
     display: flex;
-    flex-grow: 3;
+    flex-basis: 15em;
 }
