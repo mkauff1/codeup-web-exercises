@@ -1,0 +1,23 @@
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:992px) {
+    body {
+        background-color: mediumpurple;
+    }
+    .jumbotron {
+
+        text-align: center;
+    }
+    h1 {
+        width: 100%;
+        background-color: #ffffffab;
+    }
+    .ionicon {
+        width: 3%;
+    }
+    .text-purple {
+        background-color: purple;
+    }
+    a :active {
+        color: black;
+    }
+}
