@@ -160,19 +160,48 @@ console.log(Person());
 
  */
 
-function takeInput(value) {
-    if(typeof value == "number"){
-        return true;
-    } else {
-        return false;
-    }
-}
+//function takeInput(value) {
+//    if(typeof value == "number"){
+//        return true;
+//    } else {
+//        return false;
+//    }
+//}
+//
+//console.log(takeInput("number"));
+//console.log(takeInput(undefined));
+//console.log(takeInput(true));
+//console.log(takeInput([1, 2]));
+////console.log(takeInput({number}));
+////console.log(takeInput(&));
+//console.log(takeInput("1"));
+//console.log(takeInput(Infinity));
 
-console.log(takeInput("number"));
-console.log(takeInput(undefined));
-console.log(takeInput(true));
-console.log(takeInput([1, 2]));
-//console.log(takeInput({number}));
-//console.log(takeInput(&));
-console.log(takeInput("1"));
-console.log(takeInput(Infinity));
+//var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+//function removeAll(arr, inp) {
+//    if (bugs ==! "ant"){
+//        console.log(arr);
+//    } else {
+//        console.log("");
+//    }
+//}
+//console.log(removeAll(bugs, "ant"));
+
+var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+
+function removeAll(anArr, valueToRemove) {
+    let filteredArr = [];
+   //anArr.forEach(function(element) {
+   //    if(valueToRemove !== element) {
+   //        filteredArr.push(element);
+   //    }
+   //});
+    for (let i = 0; i < anArr.length; i++) {
+        if(valueToRemove === anArr[i]) {
+            continue;
+        }
+        filteredArr.push(anArr[i]);
+    }
+    return filteredArr;
+}
+console.log(removeAll(bugs, "ant"));
