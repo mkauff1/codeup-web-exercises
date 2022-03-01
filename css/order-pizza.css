@@ -1,4 +1,12 @@
-/* Medium devices (tablets, 768px and up) */
+@media screen and (max-width:991px) {
+    .jumbotron {
+        display: none;
+    }
+    .ionicon {
+        width: 3%;
+    }
+}
+/* Medium devices (tablets, 992px and up) */
 @media screen and (min-width:992px) {
     body {
         background-color: mediumpurple;

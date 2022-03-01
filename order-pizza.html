@@ -30,20 +30,6 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search galaxies near you!</button>
                 </form>
             </li>
-            <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li> -->
-            <!-- <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
         </ul>
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Person Circle</title><path d="M258.9 48C141.92 46.42 46.42 141.92 48 258.9c1.56 112.19 92.91 203.54 205.1 205.1 117 1.6 212.48-93.9 210.88-210.88C462.44 140.91 371.09 49.56 258.9 48zm126.42 327.25a4 4 0 01-6.14-.32 124.27 124.27 0 00-32.35-29.59C321.37 329 289.11 320 256 320s-65.37 9-90.83 25.34a124.24 124.24 0 00-32.35 29.58 4 4 0 01-6.14.32A175.32 175.32 0 0180 259c-1.63-97.31 78.22-178.76 175.57-179S432 158.81 432 256a175.32 175.32 0 01-46.68 119.25z"/><path d="M256 144c-19.72 0-37.55 7.39-50.22 20.82s-19 32-17.57 51.93C191.11 256 221.52 288 256 288s64.83-32 67.79-71.24c1.48-19.74-4.8-38.14-17.68-51.82C293.39 151.44 275.59 144 256 144z"/></svg>
         <a class="navbar-brand" href="#">Sign Up</a>
@@ -70,33 +56,235 @@
 <!-- Nav Tabs Starts -->
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><span class="badge badge-light">1</span> Size and crust</a>
     </li>
     <li class="nav-item" role="presentation">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><span class="badge badge-light">2</span> Cheese and sauce</a>
     </li>
     <li class="nav-item" role="presentation">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="badge badge-light">3</span> Toppings</a>
     </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-</div>
-<!-- Nav Tabs Ends -->
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <!-- Card 1 Starts -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
 
-<!-- Starts -->
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-        Featured
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Hand Tossed
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <p>Garlic seasoned crust with a rich, buttery taste.</p>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="crust" value="HT10">
+                                </div>
+                            </div>
+                            <li class="list-group-item">Small (10")</li>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="crust" value="HT12">
+                                </div>
+                            </div>
+                            <li class="list-group-item">Medium (12")</li>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Crispy Thin
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <p>Thin enough for optimum crispy to crunchy ratio.</p>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="crust" value="CT12">
+                                </div>
+                            </div>
+                            <li class="list-group-item">Medium (12")</li>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="crust" value="CT14">
+                                </div>
+                            </div>
+                            <li class="list-group-item">Large (14")</li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="button-addon4">
+                    <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Next Step</button>
+                    </div>
+                </div>
+            </ol>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress">
+        </nav>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <!-- Card 2 Starts -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Cheese
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">How Much?</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Regular</option>
+                                <option>Light</option>
+                                <option>Normal</option>
+                                <option>Extra</option>
+                                <option>Double</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Sauce
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Type?</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Tomato Sauce</option>
+                                <option>Marinara Sauce</option>
+                                <option>BBQ Sauce</option>
+                                <option>Alfredo Sauce</option>
+                            </select>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">How Much??</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Regular</option>
+                                <option>Light</option>
+                                <option>Normal</option>
+                                <option>Extra</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+                    <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Previous Step</button>
+                        <button class="btn btn-outline-secondary" type="button">Next Step</button>
+                    </div>
+                </div>
+            </ol>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <!-- Card 3 Starts -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Choose Meats
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="beef"> Beef
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="ham"> Ham
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="steak"> Philly Steak
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="bacon"> Bacon
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Choose Non-Meats
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="beef"> Green Peppers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="ham"> Mushrooms
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="steak"> Onions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="toppings" value="bacon"> Jalepeño Peppers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+                    <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Previous Step</button>
+                        <button class="btn btn-outline-secondary" type="button">Checkout</button>
+                    </div>
+                </div>
+            </ol>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </nav>
+    </div>
 </div>
+<!-- Nav Tab Ends -->
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
