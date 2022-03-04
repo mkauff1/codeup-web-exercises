@@ -187,21 +187,23 @@ console.log(Person());
 //}
 //console.log(removeAll(bugs, "ant"));
 
-var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+//var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+//
+//function removeAll(anArr, valueToRemove) {
+//    let filteredArr = [];
+//   //anArr.forEach(function(element) {
+//   //    if(valueToRemove !== element) {
+//   //        filteredArr.push(element);
+//   //    }
+//   //});
+//    for (let i = 0; i < anArr.length; i++) {
+//        if(valueToRemove === anArr[i]) {
+//            continue;
+//        }
+//        filteredArr.push(anArr[i]);
+//    }
+//    return filteredArr;
+//}
+//console.log(removeAll(bugs, "ant"));
 
-function removeAll(anArr, valueToRemove) {
-    let filteredArr = [];
-   //anArr.forEach(function(element) {
-   //    if(valueToRemove !== element) {
-   //        filteredArr.push(element);
-   //    }
-   //});
-    for (let i = 0; i < anArr.length; i++) {
-        if(valueToRemove === anArr[i]) {
-            continue;
-        }
-        filteredArr.push(anArr[i]);
-    }
-    return filteredArr;
-}
-console.log(removeAll(bugs, "ant"));
+console.log(((x, y) => x > y ? x : y)(1, 2));
