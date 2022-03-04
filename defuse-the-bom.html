@@ -26,12 +26,13 @@
 
         detonationTimer--;
     }
-    updateTimer(1000);
+    let newTimer = setInterval(updateTimer, 1000);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-
+        let newClear= clearInterval(newTimer);
+        alert("NO BOOM :(");
     }
 
     // Don't modify anything below this line!

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="count"></div>
+<input id="btn" type="button" value="Add 1" />
+
+
+<script>
+    "use strict";
+
+    let btn = document.getElementById("add");
+    let output = document.getElementById("count");
+    let current = 0;
+
+    btn.addEventListener("click", () => {
+        current++;
+
+        output.innerHTML = current.toString();
+    });
+
+
+</script>
+</body>
+</html>
