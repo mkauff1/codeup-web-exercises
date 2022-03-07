@@ -34,20 +34,29 @@ let theFirstChild = parent.firstChild;
 parent.insertBefore(nameElement, theFirstChild);
 */
 
+/*
 let ul = document.querySelector(".top-ul");
 let newLi = document.createElement("li");
 newLi.classList.add("col-3","mx-0");
 newLi.appendChild(nameElement);
 ul.prepend(newLi);
+*/
 
+// navContent.insertBefore(nameElement, navContent.children[1]); Instructor solution with extra
 
+let contentDiv = document.querySelector('div.container-fluid.container-md.row.mx-md-auto.mt-4');
+// console.log(contentDiv);
+let details = document.createElement('p');
+details.innerText = getGitHubInfo().details;
 
+contentDiv.replaceChildren(details);
 
 
 
 // PRETEND THIS IS AN API CALL ACROSS THE INTERWEBS
 function getGitHubInfo(){
     return {
-        name: "vegetasrevenge"
+        name: "vegetasrevenge",
+        details: "I do code real GUD"
     };
 }
