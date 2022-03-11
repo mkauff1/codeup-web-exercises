@@ -20,7 +20,7 @@
 <h2 id="sub-header">Hello Again.</h2>
 <button id="b3">Button 3</button>
 
-<p class="sub-paragraph">
+<p id="start" class="sub-paragraph hidden" >
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -29,7 +29,13 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<p id="finished" class=""> Mission ACCOMPLISHED!</p>
 <button id="b4">Less</button>
+
+
+<style type="text/css">
+    .hidden { display: none; }
+</style>
 
 <script>
     (function() {
@@ -72,20 +78,22 @@
         blueMan.style.color = 'blue';
         */
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        // var subParagraphs = document.getElementsByClassName("sub-paragraph");
+
+        var first = document.getElementById("start");
+        var second = document.getElementById("finished");
         var btn4 = document.getElementById('b4');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         // subParagraphs[0].innerText = "Mission Accomplished!";
         btn4.addEventListener('click', function(e){
-            subParagraphs[0].innerText = "Mission Accomplished!";
-
-            let p = e.target.previousElementSibling;
-            if (p.subParagraphs.contains("hidden")) {
-                p.subParagraphs.remove("hidden");
+            if (first.classList.contains("hidden")) {
+                first.classList.remove("hidden");
+                second.classList.add("hidden");
                 e.target.innerText = "More";
             } else {
-                p.subParagraphs.add("hidden");
+                first.classList.add("hidden");
+                second.classList.remove("hidden");
                 e.target.innerText = "Less";
             }
         });
