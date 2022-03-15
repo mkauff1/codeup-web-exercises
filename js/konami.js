@@ -29,28 +29,29 @@ $(document).keyup(function (e) {
         66: 'b',
         13: 'enter'
     };
-    var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+    let konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+    let konamiPosition = 0;
 
-    var konamiCodePosition = 0;
     document.addEventListener('keydown', function(e) {
-        var key = expectedKeys[e.keyCode];
-        var requiredKey = konamiCode[konamiCodePosition];
-        if (key == requiredKey) {
-            konamiCodePosition++;
+        let expectedKey = expectedKeys[e.keyCode];
+        let requiredKey = konamiCode[konamiPosition];
+        if (expectedKey === requiredKey) {
+            konamiPosition++;
 
-            if (konamiCodePosition == konamiCode.length) {
+            if (konamiPosition === konamiCode.length) {
                 activateCode();
-                konamiCodePosition = 0;
+                konamiPosition = 0;
             }
         } else {
-            konamiCodePosition = 0;
+            konamiPosition = 0;
         }
     });
+
     function activateCode() {
         document.body.style.backgroundImage = "url(pics/konami-code-30-lives.jpg)";
         document.querySelector("body").style.backgroundSize = "cover";
 
-        var audioElement = document.createElement('audio');
+        let audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '' +
             '/pics/03_Battle in the Jungle.mp3');
 
