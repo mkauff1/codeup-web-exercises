@@ -11,39 +11,30 @@
 
 </head>
 <body>
-<!-- <div id="weather"></div> -->
-<div class="container">
-    <div class="d-flex justify-content-center">
-        <div id="playerTag" class="d-flex justify-content-center"></div>
-        <div id="spartanRank" class="d-flex justify-content-center"></div>
-        <div id="spartanStats" class="d-flex justify-content-center"></div>
+<main class="container">
+    <div>
+        <h3 style="color: whitesmoke">Halo Prologue</h3>
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <div id="status" style="color:red;">Status: Loading</div>
     </div>
-</div>
+    <div class="container">
+        <div class="">
+            <div id="playerTag" class=""></div>
+            <div id="spartanRank" class=""></div>
+            <div id="spartanStats" class=""></div>
+        </div>
+    </div>
+</main>
+
 <script src="js/keys.js"></script>
 <script>
-    /*
-    // Do Fetch Stuff
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=" + OWM_KEY)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.daily);
-        let html = "";
-        html+= '<ul>';
-
-        for (let i = 0; i < 5; i++) { // can hardcode to 5 days (data.daily.length)
-            let dailyTemp = data.daily[i].temp.day; // check with console.log
-            console.log(dailyTemp);
-            html+= '<li>' + dailyTemp + '</li>';
-        }
-        html += '</ul>';
-        $('#weather').html(html);
-    });
-    */
     $("body").css({
         "background-image": "url('/pics/halo-5-guardians.jpg')",
-        "background-size": "cover"
+        "moz-background-size": "cover"
     });
 
+// ******* Fetch Halo Data ***************
     let gamerTags = ["I iz CeilingCat", "Arke64"];
     let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags.join(",");
     let encodedUrl = encodeURI(url);
@@ -102,6 +93,31 @@
                 $('#spartanStats').html(html3);
             }
         });
+
+// *********** Add audio *****************
+    let audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', '' +
+        '/pics/01. Prologue.mp3');
+
+    audioElement.addEventListener('ended', function() {
+        this.play();
+    }, false);
+
+    audioElement.addEventListener("canplay",function(){
+        $("#length").text("Duration:" + audioElement.duration + " seconds");
+        $("#source").text("Source:" + audioElement.src);
+        $("#status").text("Status: Ready to play").css("color","green");
+    });
+
+    $('#play').click(function() {
+        audioElement.play();
+        $("#status").text("Status: Playing");
+    });
+
+    $('#pause').click(function() {
+        audioElement.pause();
+        $("#status").text("Status: Paused");
+    });
 
 </script>
 </body>
