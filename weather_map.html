@@ -7,29 +7,45 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
-<!-- <div id="weather"></div> -->
+<div id="minWeather"></div>
+<div id="maxWeather"></div>
 
 
 <script src="js/keys.js"></script>
 <script>
-    /*
+
     // Do Fetch Stuff
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=" + OWM_KEY)
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=42.33&lon=-85.05&units=imperial&appid=" + OWM_KEY)
     .then(response => response.json())
     .then(data => {
-        console.log(data.daily);
-        let html = "";
-        html+= '<ul>';
+        console.log(data);
+        let minTemp = "";
+        minTemp+= '<ul>';
 
         for (let i = 0; i < 5; i++) { // can hardcode to 5 days (data.daily.length)
-            let dailyTemp = data.daily[i].temp.day; // check with console.log
-            console.log(dailyTemp);
-            html+= '<li>' + dailyTemp + '</li>';
+            let dailyMinTemp = data.daily[i].temp.min; // check with console.log
+            //console.log(dailyMinTemp);
+            minTemp+= '<li>' + dailyMinTemp + '</li>';
         }
-        html += '</ul>';
-        $('#weather').html(html);
+        minTemp += '</ul>';
+        $('#minWeather').html(minTemp);
+
+        let maxTemp = "";
+        maxTemp+= '<ul>';
+        for (let i = 0; i < 5; i++) {
+            let dailyMaxTemp = data.daily[i].temp.max; // check with console.log
+            //console.log(dailyMaxTemp);
+            maxTemp+= '<li>' + dailyMaxTemp + '</li>';
+        }
+        maxTemp+= '</ul>';
+        $('#maxWeather').html(maxTemp);
+
+        for (let day of data.daily) {
+            for (let dayWeather of day.weather) {
+                console.log(dayWeather.description);
+            }
+        }
     });
-    */
 </script>
 </body>
 </html>

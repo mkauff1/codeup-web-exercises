@@ -6,8 +6,8 @@
     <!------ JQuery --------->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!------ BootStrap -------->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -18,12 +18,12 @@
         <button id="pause">Pause</button>
         <div id="status" style="color:red;">Status: Loading</div>
     </div>
-    <div class="container">
-        <div class="">
-            <div id="playerTag" class=""></div>
-            <div id="spartanRank" class=""></div>
-            <div id="spartanStats" class=""></div>
-        </div>
+    <div class="input-group mb-3">
+        <button class="input-group-text" id="searchGamertag">Search</button>
+        <input type="text" class="form-control" placeholder="Gamertag" id="searchSpartan" maxlength="15"/>
+    </div>
+    <div id="container" class="container d-flex justify-content-evenly flex-wrap">
+
     </div>
 </main>
 
@@ -34,54 +34,74 @@
         "moz-background-size": "cover"
     });
 
-// ******* Fetch Halo Data ***************
-    let gamerTags = ["I iz CeilingCat", "Arke64"];
-    let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags.join(",");
-    let encodedUrl = encodeURI(url);
+    document.getElementById("searchGamertag").addEventListener('click', function(){
+        let gamerTags = document.getElementById("searchSpartan").value;
+        let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags;
+        let encodedUrl = encodeURI(url);
 
-    fetch(encodedUrl, {
-        headers: {
-            "Ocp-Apim-Subscription-Key": HALO_KEY
-        }
+        fetch(encodedUrl, {
+            headers: {
+                "Ocp-Apim-Subscription-Key": HALO_KEY
+            }
+        })
+
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+                let mainContainer = document.getElementById("container"); //Spartan List container
+
+                for (let p of data.Results) {
+                    let d = document.createElement("div"); // Single spartan
+                    d.classList.add("card", "col-4", "m-1");
+                    d.style.width="18rem";
+                    let name = document.createElement("div");
+                    name.classList.add("card-header");
+
+                    name.innerHTML = "GamerTag: " + p.Id;
+
+                    function appendingAttribute (parent, content) {
+                        let div = document.createElement("div");
+                        div.innerHTML = content;
+                        parent.appendChild(div);
+                    }
+
+                    d.appendChild(name);
+                    appendingAttribute(d, "Rank: " + p.Result.SpartanRank);
+                    appendingAttribute(d, "XP: " + p.Result.Xp);
+                    appendingAttribute(d, "Total Kills: " + p.Result.CampaignStat.TotalKills);
+                    appendingAttribute(d, "Total Headshots: " + p.Result.CampaignStat.TotalHeadshots);
+
+                    mainContainer.appendChild(d);
+                }
+            });
     })
 
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            //for (var gamer of data.Results) {
-            for (let i = 0; i < data.Results.length - 1; i++){
-                var gamer = data.Results[i];
-                //}
-                //let gamer1 = data.Results[0];
-                //let gamer2 = data.Results[1];
+// ******* Fetch Halo Data ***************
+
+            //return;
+            /*
+            for (var gamer of data.Results) {
+
 
                 //First call
+                let html2 = "";
+                let gamerId = (gamer.Id);
+                html2 += '<div id="playerTag" style="font-weight: bold">' + "Gamertag: " + gamerId + '</div>';
+                $('#playerTag').html(html2);
+
+                //Second call
                 console.log(gamer.Result.SpartanRank);
                 let html1 = "";
-                //html1 += '<div class="d-flex align-content-center">';
                 let sRank = (gamer.Result.SpartanRank);
                 let xp = (gamer.Result.Xp);
                 html1 += '<div>' + "Spartan Rank: " + sRank + '</div>' +
                     '<div>' + "XP: " + xp + '</div>';
-                //html1 += '</div>';
                 $('#spartanRank').html(html1);
-
-                //Second call
-                let html2 = "";
-                //html2 += '<div>';
-                let gamerId = (gamer.Id);
-                html2 += '<div style="font-weight: bold">' + "Gamertag: " + gamerId + '</div>';
-                //html2 += '</div>';
-                $('#playerTag').html(html2);
 
                 //Third call
                 console.log(gamer.Result.CampaignStat);
                 let html3 = "";
-                //html3 += '<div>';
-                //for (let i = 0; i > 2; i++) {
-                //    var stats = (data.Results[0].Result.CampaignStat);
-                //    console.log("Campaign: " + stats);
-                //}
                 let stats = (gamer.Result.CampaignStat);
                 let totalKills = stats.TotalKills;
                 let totalHeadshots = stats.TotalHeadshots;
@@ -89,10 +109,9 @@
                 console.log(totalHeadshots);
                 html3 += '<div>' + "Total Kills: " + totalKills + '</div>' +
                     '<div>' + "Total Headshots: " + totalHeadshots + '</div>';
-                //html3 += '</div>';
                 $('#spartanStats').html(html3);
             }
-        });
+                */
 
 // *********** Add audio *****************
     let audioElement = document.createElement('audio');
