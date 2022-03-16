@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Halo 5 Campaign</title>
+    <!------ JQuery --------->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!------ BootStrap -------->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <!-- <div id="weather"></div> -->
-
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div id="playerTag" class="d-flex justify-content-center"></div>
+        <div id="spartanRank" class="d-flex justify-content-center"></div>
+        <div id="spartanStats" class="d-flex justify-content-center"></div>
+    </div>
+</div>
 <script src="js/keys.js"></script>
 <script>
     /*
@@ -28,7 +39,69 @@
         $('#weather').html(html);
     });
     */
+    $("body").css({
+        "background-image": "url('/pics/halo-5-guardians.jpg')",
+        "background-size": "cover"
+    });
 
+    let gamerTags = ["I iz CeilingCat", "Arke64"];
+    let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags.join(",");
+    let encodedUrl = encodeURI(url);
+
+    fetch(encodedUrl, {
+        headers: {
+            "Ocp-Apim-Subscription-Key": HALO_KEY
+        }
+    })
+
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            //for (var gamer of data.Results) {
+            for (let i = 0; i < data.Results.length - 1; i++){
+                var gamer = data.Results[i];
+                //}
+                //let gamer1 = data.Results[0];
+                //let gamer2 = data.Results[1];
+
+                //First call
+                console.log(gamer.Result.SpartanRank);
+                let html1 = "";
+                //html1 += '<div class="d-flex align-content-center">';
+                let sRank = (gamer.Result.SpartanRank);
+                let xp = (gamer.Result.Xp);
+                html1 += '<div>' + "Spartan Rank: " + sRank + '</div>' +
+                    '<div>' + "XP: " + xp + '</div>';
+                //html1 += '</div>';
+                $('#spartanRank').html(html1);
+
+                //Second call
+                let html2 = "";
+                //html2 += '<div>';
+                let gamerId = (gamer.Id);
+                html2 += '<div style="font-weight: bold">' + "Gamertag: " + gamerId + '</div>';
+                //html2 += '</div>';
+                $('#playerTag').html(html2);
+
+                //Third call
+                console.log(gamer.Result.CampaignStat);
+                let html3 = "";
+                //html3 += '<div>';
+                //for (let i = 0; i > 2; i++) {
+                //    var stats = (data.Results[0].Result.CampaignStat);
+                //    console.log("Campaign: " + stats);
+                //}
+                let stats = (gamer.Result.CampaignStat);
+                let totalKills = stats.TotalKills;
+                let totalHeadshots = stats.TotalHeadshots;
+                console.log(totalKills);
+                console.log(totalHeadshots);
+                html3 += '<div>' + "Total Kills: " + totalKills + '</div>' +
+                    '<div>' + "Total Headshots: " + totalHeadshots + '</div>';
+                //html3 += '</div>';
+                $('#spartanStats').html(html3);
+            }
+        });
 
 </script>
 </body>
