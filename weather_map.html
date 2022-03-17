@@ -5,20 +5,76 @@
     <title>Title</title>
     <!------ JQuery --------->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!------ BootStrap -------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<div id="minWeather"></div>
-<div id="maxWeather"></div>
+<main>
+    <div class="input-group mb-3">
+        <button class="input-group-text" id="searchLatLon">Search</button>
+        <input type="text" class="form-control" placeholder="Lat" id="searchLat" maxlength="15">
+        <input type="text" class="form-control" placeholder="Lon" id="searchLon" maxlength="15">
+    </div>
 
+    <div id="container" class="container d-flex justify-content-evenly flex-wrap">
+
+    </div>
+    <div id="minWeather"></div>
+    <div id="maxWeather"></div>
+
+</main>
 
 <script src="js/keys.js"></script>
 <script>
 
-    // Do Fetch Stuff
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=42.33&lon=-85.05&units=imperial&appid=" + OWM_KEY)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
+    document.getElementById("searchLatLon").addEventListener('click', function() {
+        let cityLat = document.getElementById("searchLat").value;
+        let cityLon = document.getElementById("searchLon").value;
+        let geoLocationUrl = ("https://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
+        let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall&appid=" + OWM_KEY);
+        let encodedUrl = encodeURI(geoLocationUrl);
+
+        fetch(encodedUrl)
+            .then(response => response.json())
+            fetch(weatherStatsUrl)
+            .then(data => {
+                console.log(data);
+
+                let mainContainer = document.getElementById("container");
+
+                for (let weath of data.daily) {
+                    let d = document.createElement("div"); // Single day
+                    d.classList.add("card", "col-4", "m-1");
+                    d.style.width = "18rem";
+                    let dateOfWeather = document.createElement("div");
+                    dateOfWeather.classList.add("card-header");
+
+                    dateOfWeather.innerHTML = "Timezone: " + data.timezone; //Want to switch to date
+
+                    function appendingAttribute(parent, content) {
+                        let div = document.createElement("div");
+                        div.innerHTML = content;
+                        parent.appendChild(div);
+                    }
+
+                    d.appendChild(dateOfWeather);
+
+                    appendingAttribute(d, "Temp: " + weath.temp.min + "/" + weath.temp.max + " F" + "<hr>");
+                    for (let dayWeather of weath.weather) {
+                        appendingAttribute(d, "Description: " + dayWeather.description + " " + dayWeather.icon);
+                    }
+
+                    appendingAttribute(d, "Humidity: " + weath.humidity);
+                    appendingAttribute(d, "Wind: " + weath.wind_speed + "mph");
+                    appendingAttribute(d, "Pressure: " + weath.pressure);
+
+                    mainContainer.appendChild(d);
+                }
+            });
+    })
+        /*
         let minTemp = "";
         minTemp+= '<ul>';
 
@@ -46,6 +102,46 @@
             }
         }
     });
+         */
+    /*
+    $("body").css({
+        "background-image": "url('/pics/halo-5-guardians.jpg')",
+        "moz-background-size": "cover"
+    });
+
+    document.getElementById("searchGamertag").addEventListener('click', function(){
+        let gamerTags = document.getElementById("searchSpartan").value;
+        let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags;
+        let encodedUrl = encodeURI(url);
+
+                let mainContainer = document.getElementById("container"); //Spartan List container
+
+                for (let p of data.Results) {
+                    let d = document.createElement("div"); // Single spartan
+                    d.classList.add("card", "col-4", "m-1");
+                    d.style.width="18rem";
+                    let name = document.createElement("div");
+                    name.classList.add("card-header");
+
+                    name.innerHTML = "GamerTag: " + p.Id;
+
+                    function appendingAttribute (parent, content) {
+                        let div = document.createElement("div");
+                        div.innerHTML = content;
+                        parent.appendChild(div);
+                    }
+
+                    d.appendChild(name);
+                    appendingAttribute(d, "Rank: " + p.Result.SpartanRank);
+                    appendingAttribute(d, "XP: " + p.Result.Xp);
+                    appendingAttribute(d, "Total Kills: " + p.Result.CampaignStat.TotalKills);
+                    appendingAttribute(d, "Total Headshots: " + p.Result.CampaignStat.TotalHeadshots);
+
+                    mainContainer.appendChild(d);
+                }
+            });
+
+     */
 </script>
 </body>
 </html>
