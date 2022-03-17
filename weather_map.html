@@ -32,13 +32,14 @@
     document.getElementById("searchLatLon").addEventListener('click', function() {
         let cityLat = document.getElementById("searchLat").value;
         let cityLon = document.getElementById("searchLon").value;
-        let geoLocationUrl = ("https://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
-        let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall&appid=" + OWM_KEY);
-        let encodedUrl = encodeURI(geoLocationUrl);
+        let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
+        //let geoLocationUrl = ("https://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
+        //let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall&appid=" + OWM_KEY);
+        let encodedUrl = encodeURI(weatherStatsUrl);
 
         fetch(encodedUrl)
             .then(response => response.json())
-            fetch(weatherStatsUrl)
+            //fetch(weatherStatsUrl)
             .then(data => {
                 console.log(data);
 
