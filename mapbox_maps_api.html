@@ -207,8 +207,11 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
     center: [-83.17823878255246, 42.1417394047964],
     zoom: 12,
-    scrollZoom: false
 });
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
     const stores = {
         "type": "FeatureCollection",
         "features": [
@@ -230,7 +233,7 @@ const map = new mapboxgl.Map({
                     "country": "United States",
                     "postalCode": "48216",
                     "state": "MI",
-                    "photo": "src='/pics/MexicanVillage.png'"
+                    "photo": "/pics/MexicanVillage.png"
                 }
             },
             {
@@ -243,13 +246,15 @@ const map = new mapboxgl.Map({
                     ]
                 },
                 "properties": {
+                    "name": "Mallie's Sports Grill & Bar",
                     "phoneFormatted": "(734) 287-0800",
                     "phone": "+17342870800",
                     "address": "19400 Northline Rd.",
                     "city": "Southgate",
                     "country": "United States",
                     "postalCode": "48195",
-                    "state": "MI"
+                    "state": "MI",
+                    "photo": "/pics/Mallies.png"
                 }
             },
             {
@@ -257,19 +262,20 @@ const map = new mapboxgl.Map({
                 "geometry": {
                     "type": "Point",
                     "coordinates": [
-                        -77.043929,
-                        38.910525
+                        -83.27660215795922,
+                        42.123390110143745,
                     ]
                 },
                 "properties": {
-                    "phoneFormatted": "(202) 387-9338",
-                    "phone": "2023879338",
-                    "address": "1512 Connecticut Ave NW",
-                    "city": "Washington DC",
+                    "name": "Tiffany's Pizza",
+                    "phoneFormatted": "(734) 783-3100",
+                    "phone": "+17347833100",
+                    "address": "25066 Telegraph Rd.",
+                    "city": "Brownstown",
                     "country": "United States",
-                    "crossStreet": "at Dupont Circle",
-                    "postalCode": "20036",
-                    "state": "D.C."
+                    "postalCode": "48134",
+                    "state": "MI",
+                    "photo": "/pics/TiffanysPizza.png"
                 }
             },
             {
@@ -277,19 +283,20 @@ const map = new mapboxgl.Map({
                 "geometry": {
                     "type": "Point",
                     "coordinates": [
-                        -77.0672,
-                        38.90516896
+                        -83.15102084533311,
+                        42.20174137979905
                     ]
                 },
                 "properties": {
-                    "phoneFormatted": "(202) 337-9338",
-                    "phone": "2023379338",
-                    "address": "3333 M St NW",
-                    "city": "Washington DC",
+                    "name": "Coastal Thai",
+                    "phoneFormatted": "(734) 282-3885",
+                    "phone": "+17342823885",
+                    "address": "140 Sycamore St.",
+                    "city": "Wyandotte",
                     "country": "United States",
-                    "crossStreet": "at 34th St NW",
-                    "postalCode": "20007",
-                    "state": "D.C."
+                    "postalCode": "48192",
+                    "state": "MI",
+                    "photo": "/pics/CostalThai.png"
                 }
             },
             {
@@ -297,19 +304,20 @@ const map = new mapboxgl.Map({
                 "geometry": {
                     "type": "Point",
                     "coordinates": [
-                        -77.002583742142,
-                        38.887041080933
+                        -83.29960804181802,
+                        42.32798185184455
                     ]
                 },
                 "properties": {
-                    "phoneFormatted": "(202) 547-9338",
-                    "phone": "2025479338",
-                    "address": "221 Pennsylvania Ave SE",
-                    "city": "Washington DC",
+                    "name": "Golden Bakery",
+                    "phoneFormatted": "(313) 278-8877",
+                    "phone": "+13132788877",
+                    "address": "26433 Ford Rd.",
+                    "city": "Dearborn Heights",
                     "country": "United States",
-                    "crossStreet": "btwn 2nd & 3rd Sts. SE",
-                    "postalCode": "20003",
-                    "state": "D.C."
+                    "postalCode": "48127",
+                    "state": "MI",
+                    "photo": "/pics/GoldenBakery.png"
                 }
             }
         ]
@@ -376,7 +384,7 @@ const map = new mapboxgl.Map({
             link.href = '#';
             link.className = 'title';
             link.id = `link-${store.properties.id}`;
-            link.innerHTML = `${store.properties.address}`;
+            link.innerHTML = `${store.properties.name}`;
 
             /* Add details to the individual listing. */
             const details = listing.appendChild(document.createElement('div'));
@@ -417,7 +425,7 @@ const map = new mapboxgl.Map({
 
         const popup = new mapboxgl.Popup({ closeOnClick: false })
             .setLngLat(currentFeature.geometry.coordinates)
-            .setHTML(`<h3>${currentFeature.properties.name}</h3><h4>${currentFeature.properties.photo}</h4>`)
+            .setHTML(`<h3>${currentFeature.properties.address} ${currentFeature.properties.city}, ${currentFeature.properties.state}</h3><img src='${currentFeature.properties.photo}'/>`)
             .addTo(map);
     }
 
