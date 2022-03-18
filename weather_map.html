@@ -15,21 +15,28 @@
     <!--GEOCODER LIBRARY AND STYLING-->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/weather_map.css">
 </head>
 <body>
 <main>
-    <div class="input-group mb-3">
-        <button class="input-group-text" id="searchLatLon">Search</button>
-        <input type="text" class="form-control" placeholder="Lat" id="searchLat" maxlength="15">
-        <input type="text" class="form-control" placeholder="Lon" id="searchLon" maxlength="15">
-    </div>
 
-    <div id="container" class="container d-flex justify-content-evenly flex-wrap">
+    <!-- The HTML element that serves as the Mapbox container -->
 
+    <div class='sidebar'>
+        <div class='heading'>
+            <div class="input-group mb-3">
+                <button class="input-group-text" id="searchLatLon">Search</button>
+                <input type="text" class="form-control" placeholder="Lat" id="searchLat" maxlength="15">
+                <input type="text" class="form-control" placeholder="Lon" id="searchLon" maxlength="15">
+            </div>
+            <div id="container" class="container d-flex justify-content-evenly flex-wrap"></div>
+        </div>
+        <div id='listings' class='listings'></div>
     </div>
-    <div id="map"></div>
-    <div id="minWeather"></div>
-    <div id="maxWeather"></div>
+    <div id="map" class="map"></div>
+
+
 
 </main>
 <!-- Keys JS -->
@@ -48,16 +55,17 @@
 
         fetch(encodedUrl)
             .then(response => response.json())
-            //fetch(weatherStatsUrl)
             .then(data => {
                 console.log(data);
 
                 let mainContainer = document.getElementById("container");
 
-                for (let weath of data.daily) {
+                //for (let weath of data.daily) {
+                for (let i = 0; i < 5; i++) {
+                    let weath = data.daily[i];
                     let d = document.createElement("div"); // Single day
                     d.classList.add("card", "col-4", "m-1");
-                    d.style.width = "18rem";
+                    d.style.width = "14rem";
                     let dateOfWeather = document.createElement("div");
                     dateOfWeather.classList.add("card-header");
 
@@ -73,7 +81,7 @@
 
                     appendingAttribute(d, "Temp: " + weath.temp.min + "/" + weath.temp.max + " F" + "<hr>");
                     for (let dayWeather of weath.weather) {
-                        appendingAttribute(d, "Description: " + dayWeather.description + " " + dayWeather.icon);
+                        appendingAttribute(d, "Description: " + dayWeather.description); //+ " " + dayWeather.icon
                     }
 
                     appendingAttribute(d, "Humidity: " + weath.humidity);
@@ -81,7 +89,12 @@
                     appendingAttribute(d, "Pressure: " + weath.pressure);
 
                     mainContainer.appendChild(d);
+
+                    //if (weath) {
+                    //    weath.remove();
+                    //}
                 }
+
             });
     })
         /*
@@ -113,45 +126,7 @@
         }
     });
          */
-    /*
-    $("body").css({
-        "background-image": "url('/pics/halo-5-guardians.jpg')",
-        "moz-background-size": "cover"
-    });
 
-    document.getElementById("searchGamertag").addEventListener('click', function(){
-        let gamerTags = document.getElementById("searchSpartan").value;
-        let url = "https://www.haloapi.com/stats/h5/servicerecords/campaign?players=" + gamerTags;
-        let encodedUrl = encodeURI(url);
-
-                let mainContainer = document.getElementById("container"); //Spartan List container
-
-                for (let p of data.Results) {
-                    let d = document.createElement("div"); // Single spartan
-                    d.classList.add("card", "col-4", "m-1");
-                    d.style.width="18rem";
-                    let name = document.createElement("div");
-                    name.classList.add("card-header");
-
-                    name.innerHTML = "GamerTag: " + p.Id;
-
-                    function appendingAttribute (parent, content) {
-                        let div = document.createElement("div");
-                        div.innerHTML = content;
-                        parent.appendChild(div);
-                    }
-
-                    d.appendChild(name);
-                    appendingAttribute(d, "Rank: " + p.Result.SpartanRank);
-                    appendingAttribute(d, "XP: " + p.Result.Xp);
-                    appendingAttribute(d, "Total Kills: " + p.Result.CampaignStat.TotalKills);
-                    appendingAttribute(d, "Total Headshots: " + p.Result.CampaignStat.TotalHeadshots);
-
-                    mainContainer.appendChild(d);
-                }
-            });
-
-     */
 </script>
 </body>
 </html>
