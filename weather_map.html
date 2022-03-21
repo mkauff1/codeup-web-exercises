@@ -41,92 +41,10 @@
 </main>
 <!-- Keys JS -->
 <script src="js/keys.js"></script>
+<!-- Weather Map JS -->
+<script src="js/weather_map.js"></script>
 <!-- Geocoder JS -->
 <script src="js/weathermap_mapbox_utils.js"></script>
 <!-- <script src="js/geocoder-utils.js"></script> -->
-<script>
-
-    document.getElementById("searchLatLon").addEventListener('click', function() {
-        let cityLat = document.getElementById("searchLat").value;
-        let cityLon = document.getElementById("searchLon").value;
-        let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
-        //let geoLocationUrl = ("https://api.openweathermap.org/geo/1.0/reverse?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
-        let encodedUrl = encodeURI(weatherStatsUrl);
-
-        fetch(encodedUrl)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-
-                let mainContainer = document.getElementById("container");
-
-                //for (let weath of data.daily) {
-                for (let i = 0; i < 5; i++) {
-                    let weath = data.daily[i];
-                    let d = document.createElement("div"); // Single day
-                    d.classList.add("card", "col-4", "m-1");
-                    d.style.width = "14rem";
-                    let dateOfWeather = document.createElement("div");
-                    dateOfWeather.classList.add("card-header");
-
-                    dateOfWeather.innerHTML = "Timezone: " + data.timezone; //Want to switch to date
-
-                    function appendingAttribute(parent, content) {
-                        let div = document.createElement("div");
-                        div.innerHTML = content;
-                        parent.appendChild(div);
-                    }
-
-                    d.appendChild(dateOfWeather);
-
-                    appendingAttribute(d, "Temp: " + weath.temp.min + "/" + weath.temp.max + " F" + "<hr>");
-                    for (let dayWeather of weath.weather) {
-                        appendingAttribute(d, "Description: " + dayWeather.description); //+ " " + dayWeather.icon
-                    }
-
-                    appendingAttribute(d, "Humidity: " + weath.humidity);
-                    appendingAttribute(d, "Wind: " + weath.wind_speed + "mph");
-                    appendingAttribute(d, "Pressure: " + weath.pressure);
-
-                    mainContainer.appendChild(d);
-
-                    //if (weath) {
-                    //    weath.remove();
-                    //}
-                }
-
-            });
-    })
-        /*
-        let minTemp = "";
-        minTemp+= '<ul>';
-
-        for (let i = 0; i < 5; i++) { // can hardcode to 5 days (data.daily.length)
-            let dailyMinTemp = data.daily[i].temp.min; // check with console.log
-            //console.log(dailyMinTemp);
-            minTemp+= '<li>' + dailyMinTemp + '</li>';
-        }
-        minTemp += '</ul>';
-        $('#minWeather').html(minTemp);
-
-        let maxTemp = "";
-        maxTemp+= '<ul>';
-        for (let i = 0; i < 5; i++) {
-            let dailyMaxTemp = data.daily[i].temp.max; // check with console.log
-            //console.log(dailyMaxTemp);
-            maxTemp+= '<li>' + dailyMaxTemp + '</li>';
-        }
-        maxTemp+= '</ul>';
-        $('#maxWeather').html(maxTemp);
-
-        for (let day of data.daily) {
-            for (let dayWeather of day.weather) {
-                console.log(dayWeather.description);
-            }
-        }
-    });
-         */
-
-</script>
 </body>
 </html>
