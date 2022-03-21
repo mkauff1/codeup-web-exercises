@@ -11,7 +11,7 @@ function getWeatherData() {
             console.log(data);
 
             let mainContainer = document.getElementById("container");
-
+            mainContainer.innerHTML = "";
             for (let i = 0; i < 5; i++) {   //for (let weath of data.daily) {
                 let weath = data.daily[i];
                 let d = document.createElement("div"); // Single day
@@ -50,8 +50,7 @@ function getWeatherData() {
 
                 mainContainer.appendChild(d);
             }
-            // TODO: Need to remove location divs
-            //mainContainer.removeChild();
+
         });
 }
-document.getElementById("searchLatLon").addEventListener('click', getWeatherData)
+document.getElementById("searchLatLon").addEventListener('click', getWeatherData);
