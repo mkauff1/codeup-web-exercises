@@ -1,5 +1,6 @@
-var cityLat = document.getElementById("searchLat").value;
-var cityLon = document.getElementById("searchLon").value;
+var cityLat = 42.1417394047964;
+var cityLon = -83.17823878255246;
+getWeatherData();
 function getWeatherData() {
 
     let weatherStatsUrl = ("https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLon + "&units=imperial&appid=" + OWM_KEY);
@@ -16,7 +17,6 @@ function getWeatherData() {
                 let weath = data.daily[i];
                 let d = document.createElement("div"); // Single day
                 d.classList.add("card", "col-4", "m-1");
-                d.style.width = "12rem";
 
                 // Get Date and make it UTC
                 let unixDate = weath.dt;
@@ -40,8 +40,9 @@ function getWeatherData() {
                 // Add Temp Attribute + Description TODO: Fix Image source
                 appendingAttribute(d, "Temp: " + weath.temp.min + "/" + weath.temp.max + " F" + "<hr>");
                 for (let dayWeather of weath.weather) {
-                    //const icon1 = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
-                    appendingAttribute(d, "Description: " + dayWeather.description + " " + "<img src=`https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`>");
+                    // <img src='${currentFeature.properties.photo}'/>`
+                    // const icon1 = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
+                    appendingAttribute(d, "Description: " + dayWeather.description + " "); // + <img src="icon1"/>);
                 }
                 // Add other Attributes
                 appendingAttribute(d, "Humidity: " + weath.humidity);
@@ -50,7 +51,6 @@ function getWeatherData() {
 
                 mainContainer.appendChild(d);
             }
-
         });
 }
 document.getElementById("searchLatLon").addEventListener('click', getWeatherData);
