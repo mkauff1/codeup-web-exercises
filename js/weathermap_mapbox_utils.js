@@ -75,7 +75,6 @@ marker.on('dragend', onDragEnd);
 /*
 // reverse geocode method from mapbox-geocoder-utils.js
 reverseGeocode({lng: -98.4861, lat: 29.4260}, accessToken).then(function(results) {
-    // logs the address for The Alamo
     console.log(results);
 });
 */
