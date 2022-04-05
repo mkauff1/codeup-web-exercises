@@ -206,4 +206,44 @@ console.log(Person());
 //}
 //console.log(removeAll(bugs, "ant"));
 
-console.log(((x, y) => x > y ? x : y)(1, 2));
+// console.log(((x, y) => x > y ? x : y)(1, 2));
+let name = "matt";
+function sayHello(name) {
+    return 'Hello, ' + name + '!';
+}
+console.log(sayHello(name));
+
+const sayHello1 = (name) => { 'Hello, ' + name + '!' };
+const sayHello2 = name => { 'Hello, ' + name + '!' };
+const sayHello3 = (name) => `Hello, ${name}!`;
+
+console.log(sayHello1("name"));
+console.log(sayHello2("name"));
+console.log(sayHello3("name"));
+
+// const isDivisibleBy3 = n => n % 3 === 0;
+//
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//
+// console.log(numbers.filter(isDivisibleBy3));
+// console.log(numbers);
+
+// let originalString = "Hello";
+// let description = "Hiya";
+//
+// var myOutput = originalString + " is an example of " + description + " thinking.";
+// //var myOutput1 = '${originalString}' + ' is an example of " + '${description}' + 'thinking.';
+// let myOutput2 = `${originalString} is an example of ${description} thinking.`;
+// const myOutput3 = `{originalString} is an example of {description} thinking.`;
+// let myOutput4 = '${originalString} is an example of ${description} thinking.'
+//
+// console.log(myOutput);
+// //console.log(myOutput1);
+// console.log(myOutput2);
+// console.log(myOutput3);
+// console.log(myOutput4);
+
+let numbers = [1, 2, 3, 4, 5];
+numbers.map(n => n * 3)
+
+console.log(numbers);
